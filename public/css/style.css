@@ -1,0 +1,173 @@
+header {
+	overflow: hidden;
+}
+
+.navbar .navbar-brand {
+	color: #4592af;
+}
+
+.navbar .navbar-brand:hover {
+	color: #226089;
+}
+
+.banner {
+	position: relative;
+	z-index: -1;
+	margin: -5px;
+	height: 160px;
+	background: #dddddd center center
+		url("https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg");
+	background-size: cover;
+	filter: blur(3px);
+}
+
+.search-bar .search-bar-outer {
+	margin: 0 auto;
+	max-width: 680px;
+	background-color: #fce2cf;
+	border-radius: 8px;
+	padding: 20px 30px;
+	border: 0;
+	margin-top: -60px;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar .search-bar-inner h4 {
+	color: #9b4b4b;
+}
+
+.form-control::placeholder {
+	color: #aaaaaa;
+	font-size: 0.8rem;
+}
+
+.btn-major {
+	background-color: #9b4b4b;
+	color: white;
+}
+
+.form-control:focus {
+	box-shadow: none;
+	border-color: #ced4da;
+}
+
+.card {
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+	height: 180px;
+}
+
+.card-title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.restaurant-category {
+	color: #666666;
+	font-size: 0.8rem;
+}
+
+.restaurant-show-title {
+	position: relative;
+	top: -100px;
+	color: white;
+	text-align: center;
+	font-size: 3rem;
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 992px) {
+	.card img {
+		height: 115px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.restaurant-show-title {
+		font-size: 2rem;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	.card img {
+		height: auto;
+	}
+}
+.card-box {
+}
+.card-box .card {
+	/* display: flex; */
+}
+
+.create {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #9b4b4b;
+	color: #fff;
+	flex-flow: wrap column;
+	position: fixed;
+	right: 5px;
+	bottom: 5px;
+	font-size: 15px;
+}
+.create .fas {
+	font-size: 20px;
+}
+.feature {
+	text-align: right;
+	font-size: 20px;
+	color: #666;
+}
+.feature form {
+	display: inline;
+}
+.feature button {
+	border: 0;
+	background: none;
+	color: #666;
+	text-decoration: none;
+	display: inline;
+}
+
+button {
+	cursor: pointer;
+}
+.feature a,
+a {
+	color: #666;
+	text-decoration: none;
+}
+.btn-ok {
+	background-color: #4592af;
+	color: #fff;
+	margin: 0 auto 30px;
+}
+/*  */
+form.was-validated input:invalid,
+form.was-validated textarea:invalid {
+	border: 1px solid red;
+}
+/* 驗證通過 */
+form.was-validated input:valid,
+form.was-validated textarea:valid {
+	border: 1px solid green;
+}
+.new-search input {
+	border: 0;
+}
+.new-search button {
+	border: 0;
+	background-color: none;
+	background-color: #fff;
+}
+.new-search {
+	border: 1px solid #ccc;
+	overflow: hidden;
+}
