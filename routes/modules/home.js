@@ -1,7 +1,11 @@
-const express = require('express')
-const router = express.Router()
-router.get('/', (req, res) => {
-  res.render('index')
-})
+const express = require("express");
+const router = express.Router();
+const Restaurant = require("../../models/restaurants");
+router.get("/", (req, res) => {
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render("index", { restaurants }))
+    .catch(error => console.log(error));
+});
 
-module.exports = router
+module.exports = router;

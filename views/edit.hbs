@@ -1,0 +1,84 @@
+<h1 class="mb-1 restaurant-show-title">編輯餐廳資料</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-12 mx-auto">
+      <form action="" method="POST" novalidate>
+        <div class="form-group">
+          <input type="text" name="name" class="form-control" value="" required />
+          <div class="invalid-feedback">此欄位必填</div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="name_en" class="form-control" value="" required />
+          <div class="invalid-feedback">此欄位必填</div>
+        </div>
+        <div class="form-group">
+          <select name="category" class="form-control" id="category">
+            <option class="option" value="義式餐廳">義式餐廳</option>
+            <option class="option" value="日本料理">日本料理</option>
+            <option class="option" value="中東料理">中東料理</option>
+            <option class="option" value="美式">美式</option>
+            <option class="option" value="咖啡">咖啡</option>
+            <option class="option" value="酒吧">酒吧</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="text" name="image" class="form-control" value="" required />
+          <div class="invalid-feedback">此欄位必填</div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="location" class="form-control" value="" required />
+          <div class="invalid-feedback">此欄位必填</div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="phone" class="form-control" value="" required />
+          <div class="invalid-feedback">此欄位必填</div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="google_map" class="form-control" value="" required />
+          <div class="invalid-feedback">此欄位必填</div>
+        </div>
+        <div class="form-group">
+          <span>評價：</span>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level1" value="1" checked>
+            <label class="form-check-label" for="level1">
+              1顆星-難吃爆
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level2" value="2">
+            <label class="form-check-label" for="level2">
+              2顆星-很普通
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level3" value="3">
+            <label class="form-check-label" for="level3">
+              3顆星-還可以
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level4" value="4">
+            <label class="form-check-label" for="level4">
+              4顆星-不錯唷
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input rating_radio" type="radio" name="rating" id="level5" value="5">
+            <label class="form-check-label" for="level5">
+              5顆星-超好吃
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="description" rows="5" class="form-control" required></textarea>
+          <div class="invalid-feedback">此欄位必填</div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-ok" id="submit-button">確認修改</button>
+          <a href="/" class="btn btn-ok">回餐廳列表</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
