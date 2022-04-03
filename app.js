@@ -1,13 +1,16 @@
 const { urlencoded } = require("express");
 const express = require("express");
 const app = express();
-const port = 3000;
 const exphbs = require("express-handlebars");
 const router = require("./routes");
 const methodOveride = require("method-override");
 const session = require("express-session");
 const usePassport = require("./config/passport");
 const flash = require("connect-flash");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+const port = process.env.PORT;
 require("./config/mongoose");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOveride("_method"));
@@ -16,7 +19,7 @@ app.engine("hbs", exphbs({ defaultLayout: "main", extname: "hbs" }));
 app.set("view engine", "hbs");
 app.use(
   session({
-    secret: "haha",
+    secret: process.env.SESSION,
     resave: false,
     saveUninitialized: true,
   })

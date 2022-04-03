@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/s3-a1-restaurant");
+mongoose.connect(process.env.MONGODB_URI);
 const db = mongoose.connection;
 // const restaurant_json = require('../public/data/restaurant.json')
 db.on("error", () => {
