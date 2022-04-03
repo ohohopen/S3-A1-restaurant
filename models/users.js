@@ -13,6 +13,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  restaurantIndex: {
+    type: Array,
+    required: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

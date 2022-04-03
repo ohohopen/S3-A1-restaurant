@@ -106,4 +106,21 @@ router.delete("/:id", (req, res) => {
     })
     .catch(error => console.log(error));
 });
+//search
+router.post("/search", (req, res) => {
+  const userId = req.user._id;
+  const keyword = req.body.keyword;
+  // console.log("userId", userId);
+  // console.log("keyword", keyword);
+  Restaurant.find({ userId })
+    .lean()
+    .then(restaurants => {
+      const searchResult = restaurants.filter(item => {
+        return item.name.toLowerCase().includes(keyword);
+      });
+      res.render("index", { restaurants: searchResult, keyword: keyword });
+    })
+    .catch(error => console.log(error));
+});
+
 module.exports = router;
