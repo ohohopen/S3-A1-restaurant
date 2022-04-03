@@ -19,13 +19,29 @@
         <a class="navbar-brand" href="/">
           <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
             width="30" height="30" class="d-inline-block align-top" alt="好。吃">
-          小明的餐廳清單
+            {{#if isAuthenticated}}
+          {{user.email}}的餐廳清單{{else}}我的餐廳清單{{/if}}
         </a>
-        <a href="/users/logout" class="btn btn-outline-secondary" style="margin:0">
-          <div class="">
-            <span>logout</span>
-          </div>
-        </a>
+        <div>
+          {{#if isAuthenticated}}
+          <a href="/users/logout" class="btn btn-outline-secondary" style="margin:0">
+            <div class="">
+              <span>logout</span>
+            </div>
+          </a>
+          {{else}}
+          <a href="/users/register" class="btn btn-outline-secondary" style="margin:0">
+            <div class="">
+              <span>register</span>
+            </div>
+          </a>
+          <a href="/users/login" class="btn btn-outline-secondary" style="margin:0">
+            <div class="">
+              <span>login</span>
+            </div>
+          </a>
+          {{/if}}
+        </div>
 
       </div>
     </nav>
