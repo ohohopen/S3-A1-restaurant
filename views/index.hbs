@@ -18,13 +18,13 @@
         </div>
       </a>
     </div>
-    <select name="category" class="form-control" id="category">
+    {{!-- <select name="category" class="form-control" id="category">
       <option class="option" disabled selected>sort</option>
       <option class="option" value="">A->Z</option>
       <option class="option" value="">Z->A</option>
       <option class="option" value="">類別</option>
       <option class="option" value="">地區</option>
-    </select>
+    </select> --}}
   </div>
 
 </div>
@@ -36,7 +36,7 @@
       <div class="card-columns">
         {{#each restaurants}}
         <div class="mb-3 card-box">
-          <a href="/restaurants/{{this._id}}/detail">
+          <a href="/restaurants/{{this._id}}/show">
             <div class="card">
               <img class="card-img-top" src="{{this.image}}" alt="" />
               <div class="card-body p-3">
@@ -56,13 +56,13 @@
             </div>
           </a>
           <div class="feature">
-            <a href="/restaurants/:id_is_here/edit">
+            <a href="/restaurants/{{this._id}}/edit">
               <i class="fas fa-edit"></i>
             </a>
-            <a href="/restaurants/xxx/detail">
+            <a href="/restaurants/{{this._id}}/show">
               <i class="fas fa-eye"></i>
             </a>
-            <form action="/restaurants/:id_is_here/delete" method="POST">
+            <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST">
               <button type="submit"><i class="fas fa-trash-alt"></i></button>
             </form>
 
