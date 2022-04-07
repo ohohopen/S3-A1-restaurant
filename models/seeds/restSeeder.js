@@ -21,39 +21,34 @@ const SEED_USERS = [
 		restaurantIndex: [4, 5, 6],
 	},
 ];
-db.once("open", () => {
-	Promise.all(
-		Array.from(SEED_USERS, (item) => {
-			return bcrypt
-				.genSalt(10)
-				.then((salt) => bcrypt.hash(item.password, salt))
-				.then((hash) =>
-					User.create({
-						name: item.name,
-						email: item.email,
-						password: hash,
-						restaurantIndex: item.restaurantIndex,
-					})
-				)
-				.then((user) => {
-					const userId = user._id;
-					//選出餐廳序號和使用者相符的餐廳
-					let restArr = restaurant_json.filter((item) =>
-						user.restaurantIndex.includes(item.id)
-					);
-					//將餐廳們塞入userId, 使各筆資料屬於特定使用者
-					restArr.forEach((item) => (item.userId = userId));
-					return Promise.all(
-						Array.from(restArr, (item) => {
-							return Restaurant.create(item);
-						})
-					);
+db.once("open", async () => {
+	await Promise.all(
+		Array.from(SEED_USERS, async (item) => {
+			const salt = await bcrypt.genSalt(10);
+
+			const hash = await bcrypt.hash(item.password, salt);
+			const user = await User.create({
+				name: item.name,
+				email: item.email,
+				password: hash,
+				restaurantIndex: item.restaurantIndex,
+			});
+			const userId = user._id;
+			//選出餐廳序號和使用者相符的餐廳
+			let restArr = restaurant_json.filter((item) =>
+				user.restaurantIndex.includes(item.id)
+			);
+			//將餐廳們塞入userId, 使各筆資料屬於特定使用者
+			restArr.forEach((item) => (item.userId = userId));
+			await Promise.all(
+				Array.from(restArr, async (item) => {
+					await Restaurant.create(item);
 				})
-				.then(() => {
-					console.log("done.");
-				});
+			);
+			console.log("done.");
 		})
-	).then(() => process.exit());
+	);
 
 	console.log("seeding is ok.");
+	process.exit();
 });
